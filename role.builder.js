@@ -23,15 +23,20 @@ var roleBuilder = {
             }
             // If no targets turn into harvester
             else {
+                console.log('Builder turned to harvester.')
                 creep.memory.role = 'harvester'
             }
         }
-        else {
+        else if(creep.store.getFreeCapacity() > 0) {
             let sources = creep.room.find(FIND_SOURCES_ACTIVE);
             //sources = _.sortBy(sources, s => creep.pos.getRangeTo(s))
             if(creep.harvest(sources[1]) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(sources[1], {visualizePathStyle: {stroke: '#0000ff'}});
             }
+        }
+        else {
+            console.log('Builder turned to harvester.')
+            creep.memory.role = 'harvester'
         }
     }
 };
