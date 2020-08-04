@@ -6,6 +6,7 @@ var roleHarvester = {
     run: function (creep) {
         // Check if there is free capacity
         if (creep.store.getFreeCapacity() > 0) {
+            console.log('Empty:' + creep.name);
             // Get closest source with energy
             let sources = creep.room.find(FIND_SOURCES_ACTIVE);
             //sources = _.sortBy(sources, s => creep.pos.getRangeTo(s))
@@ -20,7 +21,7 @@ var roleHarvester = {
                         structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0;
                 }
             });
-            console.log(creep.name);
+            console.log('Full:' + creep.name);
             if (creep.name === 'Harvester20391420') {
                 console.log('hey');
             }
