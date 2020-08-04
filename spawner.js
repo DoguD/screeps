@@ -4,7 +4,9 @@ let population = {
     builder: spawn.memory.pBuilder,
     upgrader: spawn.memory.pUpgrader,
 };
-console.log(population);
+console.log(population.harvester);
+console.log(population.builder);
+console.log(population.upgrader);
 
 var spawner = {
     checkSpawn: function () {
