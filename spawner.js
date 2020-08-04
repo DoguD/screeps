@@ -27,7 +27,7 @@ var spawner = {
             let newName = 'Builder' + Game.time;
             Game.spawns['Spawn1'].spawnCreep([WORK, WORK, CARRY,MOVE], newName, {memory: {role: 'builder'}});
         }
-        //console.log('Harvesters:' + harvesters.length.toString() + ' / Upgraders: ' + upgraders.length.toString() + ' / Builders: ' + builders.length.toString())
+        console.log('Harvesters:' + harvesters.length.toString() + ' / Upgraders: ' + upgraders.length.toString() + ' / Builders: ' + builders.length.toString())
     }
 };
 
