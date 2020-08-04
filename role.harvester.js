@@ -28,7 +28,7 @@ var roleHarvester = {
             // If all stocks are full do builder job
             else {
                 roles.builder.run(creep);
-                console.log(creep.name + ' doing build.');
+                //console.log(creep.name + ' doing build.');
             }
         }
     }

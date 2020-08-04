@@ -27,7 +27,7 @@ var roleBuilder = {
             }
             // If no build targets then ugrade
             else {
-                console.log(creep.name + ' doing upgrade');
+                //console.log(creep.name + ' doing upgrade');
                 roles.upgrader.run(creep);
             }
         } else if (creep.store.getFreeCapacity() > 0) {
