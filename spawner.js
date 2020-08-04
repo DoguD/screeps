@@ -1,7 +1,6 @@
-let spawn = Game.spawns['Spawn1'];
-
 var spawner = {
     checkSpawn: function () {
+        let spawn = Game.spawns['Spawn1'];
         let population = {
             harvester: spawn.memory.pHarvester,
             builder: spawn.memory.pBuilder,

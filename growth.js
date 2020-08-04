@@ -1,7 +1,6 @@
-let spawn = Game.spawns['Spawn1'];
-
 var growthManager = {
     checkGrowth: function () {
+        let spawn = Game.spawns['Spawn1'];
         // Energy buildings
         let excessEnergy = true;
         let energyBuildings = spawn.room.find(FIND_STRUCTURES, {
