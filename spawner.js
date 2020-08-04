@@ -1,8 +1,8 @@
 let population = {
         harvester: 1,
-        upgrader: 0,
+        upgrader: 1,
         builder: 0
-}
+};
 
 var spawner = {
     checkSpawn: function () {
@@ -18,7 +18,7 @@ var spawner = {
         let upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
         if(upgraders.length < population.upgrader) {
             let newName = 'Upgrader' + Game.time;
-            Game.spawns['Spawn1'].spawnCreep([WORK, WORK, CARRY, MOVE], newName, {memory: {role: 'upgrader'}});
+            Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE, MOVE], newName, {memory: {role: 'upgrader'}});
         }
 
         // BUILDER
