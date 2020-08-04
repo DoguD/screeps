@@ -20,7 +20,7 @@ var growthManager = {
             let pHarvester = spawn.memory.pHarvester;
             let lPU = spawn.memory.lastPopulationUpdate;
             // Creep count
-            if ((pUpgrader < pBuilder - 3) && Game.time - lPU > 15) {
+            if ((pUpgrader < pHarvester - 3) && Game.time - lPU > 15) {
                 spawn.memory.pUpgrader = pUpgrader + 1;
                 spawn.memory.lastPopulationUpdate = Game.time;
                 console.log('Upgrader population increased.');
