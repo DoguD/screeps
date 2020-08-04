@@ -18,15 +18,19 @@ var growthManager = {
             let pUpgrader = spawn.memory.pUpgrader;
             let pBuilder = spawn.memory.pBuilder;
             let pHarvester = spawn.memory.pHarvester;
+            let lPU = spawn.memory.lastPopulationUpdate;
             // Creep count
-            if (pUpgrader < (pBuilder - 1)) {
+            if ((pUpgrader < pBuilder - 1) && Game.time - lPU > 50) {
                 spawn.memory.pUpgrader = pUpgrader + 1;
+                spawn.memory.lastPopulationUpdate = Game.time;
                 console.log('Upgrader population increased.');
-            } else if (pBuilder < pHarvester - 1) {
+            } else if ((pBuilder < pHarvester - 1) && Game.time - lPU > 50) {
                 spawn.memory.pBuilder = pBuilder + 1;
+                spawn.memory.lastPopulationUpdate = Game.time;
                 console.log('Builder population increased.');
-            } else {
+            } else if (Game.time - lPU > 50){
                 spawn.memory.pHarvester = pHarvester + 1;
+                spawn.memory.lastPopulationUpdate = Game.time;
                 console.log('Harvester population increased.');
             }
         }
