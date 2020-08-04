@@ -20,6 +20,7 @@ var roleHarvester = {
                         structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0;
                 }
             });
+            console.log(creep.name);
             if (creep.name === 'Harvester20391420') {
                 console.log('hey');
             }
