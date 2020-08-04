@@ -3,12 +3,15 @@ let roles = {
     upgrader: require('role.upgrader'),
     builder: require('role.builder')
 };
+
 let spawner = require('spawner');
+let growthManager = requier('growth');
 let clearer = require('clear');
 
 module.exports.loop = () => {
-    spawner.checkSpawn();
     clearer.clearMemory();
+    spawner.checkSpawn();
+    growthManager.checkGrowth();
 
     for (let name in Game.creeps) {
         let creep = Game.creeps[name];
