@@ -1,5 +1,5 @@
 let roles = {
-    upgrader: require('role.upgrader'),
+    builder: require('role.builder'),
 };
 
 var roleHarvester = {
@@ -25,9 +25,9 @@ var roleHarvester = {
                     creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#00ff00'}});
                 }
             }
-            // If no harvesting required go upgrade
+            // If all stocks are full do builder job
             else {
-                roles.upgrader.run(creep);
+                roles.builder.run(creep);
             }
         }
     }
