@@ -11,7 +11,6 @@ let clearer = require('clear');
 module.exports.loop = () => {
     clearer.clearMemory();
     spawner.checkSpawn();
-    growthManager.checkGrowth();
 
     for (let name in Game.creeps) {
         let creep = Game.creeps[name];
@@ -23,4 +22,6 @@ module.exports.loop = () => {
             roles.builder.run(creep)
         }
     }
+
+    growthManager.checkGrowth();
 };

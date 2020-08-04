@@ -15,6 +15,9 @@ var growthManager = {
 
         // Growth
         if (excessEnergy) {
+            console.log(spawn.memory.pUpgrader);
+            console.log(spawn.memory.pBuilder);
+            console.log(spawn.memory.pHarvester);
             // Creep count
             if (spawn.memory.pUpgrader < (spawn.memory.pBuilders - 1)) {
                 spawn.memory.pUpgrader = spawn.memory.pUpgrader + 1;

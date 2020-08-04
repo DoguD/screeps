@@ -10,12 +10,9 @@ var spawner = {
         // HARVESTERS
         let harvesters = _.filter(Game.creeps, (creep) => creep.memory.role === 'harvester');
         if (harvesters.length < population.harvester) {
-            console.log('Trying to generate harvester');
             let newName = 'Harvester' + Game.time;
-            console.log('Name given');
             spawn.spawnCreep([WORK, WORK, CARRY, MOVE], newName,
                 {memory: {role: 'harvester'}});
-            console.log('After spawn');
         }
 
         // UPGRADERS
@@ -28,7 +25,6 @@ var spawner = {
         // BUILDER
         let builders = _.filter(Game.creeps, (creep) => creep.memory.role === 'builder');
         if (builders.length < population.builder) {
-            console.log('Trying to generate builder');
             let newName = 'Builder' + Game.time;
             spawn.spawnCreep([WORK, WORK, CARRY, MOVE], newName, {memory: {role: 'builder'}});
         }
