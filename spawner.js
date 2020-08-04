@@ -13,8 +13,10 @@ var spawner = {
         if (harvesters.length < population.harvester) {
             console.log('Trying to generate harvester');
             let newName = 'Harvester' + Game.time;
+            console.log('Name given');
             spawn.spawnCreep([WORK, WORK, CARRY, MOVE], newName,
                 {memory: {role: 'harvester'}});
+            console.log('After spawn');
         }
 
         // UPGRADERS
