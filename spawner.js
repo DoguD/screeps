@@ -11,8 +11,13 @@ var spawner = {
         let harvesters = _.filter(Game.creeps, (creep) => creep.memory.role === 'harvester');
         if (harvesters.length < population.harvester) {
             let newName = 'Harvester' + Game.time;
-            spawn.spawnCreep([WORK, WORK, CARRY, MOVE, MOVE], newName,
-                {memory: {role: 'harvester'}});
+            if (!spawn.spawnCreep([WORK, WORK, WORK, CARRY, MOVE, MOVE], newName,
+                {memory: {role: 'harvester'}})) {
+                console.log('Unit too large to produce');
+                spawn.spawnCreep([WORK, WORK, CARRY, MOVE, MOVE], newName,
+                    {memory: {role: 'harvester'}})
+            }
+            ;
         }
 
         // UPGRADERS
@@ -26,7 +31,7 @@ var spawner = {
         let builders = _.filter(Game.creeps, (creep) => creep.memory.role === 'builder');
         if (builders.length < population.builder) {
             let newName = 'Builder' + Game.time;
-            if(!spawn.spawnCreep([WORK, WORK, WORK, CARRY, MOVE, MOVE], newName, {memory: {role: 'builder'}})) {
+            if (!spawn.spawnCreep([WORK, WORK, WORK, CARRY, MOVE, MOVE], newName, {memory: {role: 'builder'}})) {
                 console.log('Unit too large to produce');
                 spawn.spawnCreep([WORK, WORK, CARRY, MOVE, MOVE], newName, {memory: {role: 'builder'}})
             }
