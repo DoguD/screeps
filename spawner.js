@@ -13,7 +13,10 @@ var spawner = {
 
         // HARVESTERS
         let harvesters = _.filter(Game.creeps, (creep) => creep.memory.role === 'harvester');
+        console.log(harvesters);
+        console.log(harvesters < population.harvester);
         if (harvesters.length < population.harvester) {
+            console.log('hey');
             let newName = 'Harvester' + Game.time;
             spawn.spawnCreep([WORK, WORK, CARRY, MOVE], newName,
                 {memory: {role: 'harvester'}});
