@@ -1,3 +1,7 @@
+let roles = {
+    upgrader: require('role.upgrader'),
+};
+
 var roleHarvester = {
     run: function (creep) {
         // Check if there is free capacity
@@ -20,6 +24,10 @@ var roleHarvester = {
                 if (creep.transfer(targets[0], RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
                     creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#00ff00'}});
                 }
+            }
+            // If no harvesting required go upgrade
+            else {
+                roles.upgrader.run(creep);
             }
         }
     }
