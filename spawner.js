@@ -7,6 +7,9 @@ var spawner = {
             builder: spawn.memory.pBuilder,
             upgrader: spawn.memory.pUpgrader,
         };
+        console.log(population.harvester);
+        console.log(population.builder);
+        console.log(population.upgrader);
 
         // HARVESTERS
         let harvesters = _.filter(Game.creeps, (creep) => creep.memory.role === 'harvester');
