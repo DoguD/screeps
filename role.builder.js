@@ -1,3 +1,7 @@
+let roles = {
+    upgrader: require('role.upgrader'),
+};
+
 var roleBuilder = {
 
     /** @param {Creep} creep **/
@@ -21,12 +25,10 @@ var roleBuilder = {
                     creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#0000ff'}});
                 }
             }
-            // If no targets turn into harvester
-            /*
-        else {
-            console.log('Builder turned to harvester.')
-            creep.memory.role = 'harvester'
-        }*/
+            // If no targets go upgrade
+            else {
+                roles.upgrader.run(creep);
+            }
         } else if (creep.store.getFreeCapacity() > 0) {
             let sources = creep.room.find(FIND_SOURCES_ACTIVE);
             //sources = _.sortBy(sources, s => creep.pos.getRangeTo(s))
