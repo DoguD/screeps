@@ -5,7 +5,7 @@ let roles = {
 };
 
 let spawner = require('spawner');
-let growthManager = requier('growth');
+let growthManager = require('growth');
 let clearer = require('clear');
 
 module.exports.loop = () => {
