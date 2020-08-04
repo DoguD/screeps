@@ -13,8 +13,8 @@ var spawner = {
 
         // HARVESTERS
         let harvesters = _.filter(Game.creeps, (creep) => creep.memory.role === 'harvester');
-        console.log(harvesters);
-        console.log(harvesters < population.harvester);
+        console.log(harvesters.length);
+        console.log(harvesters.length < population.harvester);
         if (harvesters.length < population.harvester) {
             console.log('hey');
             let newName = 'Harvester' + Game.time;
