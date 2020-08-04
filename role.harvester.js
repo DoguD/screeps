@@ -10,8 +10,8 @@ var roleHarvester = {
             let sources = creep.room.find(FIND_SOURCES_ACTIVE);
             //sources = _.sortBy(sources, s => creep.pos.getRangeTo(s))
             // Harvest or move
-            if (creep.harvest(sources[0]) === ERR_NOT_IN_RANGE) {
-                creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#00ff00'}});
+            if (creep.harvest(sources[1]) === ERR_NOT_IN_RANGE) {
+                creep.moveTo(sources[1], {visualizePathStyle: {stroke: '#00ff00'}});
             }
         } else {
             var targets = creep.room.find(FIND_STRUCTURES, {

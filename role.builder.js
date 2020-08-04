@@ -33,8 +33,8 @@ var roleBuilder = {
         } else if (creep.store.getFreeCapacity() > 0) {
             let sources = creep.room.find(FIND_SOURCES_ACTIVE);
             //sources = _.sortBy(sources, s => creep.pos.getRangeTo(s))
-            if (creep.harvest(sources[1]) === ERR_NOT_IN_RANGE) {
-                creep.moveTo(sources[1], {visualizePathStyle: {stroke: '#0000ff'}});
+            if (creep.harvest(sources[0]) === ERR_NOT_IN_RANGE) {
+                creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#0000ff'}});
             }
         }
     }
