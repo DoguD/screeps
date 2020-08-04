@@ -26,7 +26,10 @@ var spawner = {
         let builders = _.filter(Game.creeps, (creep) => creep.memory.role === 'builder');
         if (builders.length < population.builder) {
             let newName = 'Builder' + Game.time;
-            spawn.spawnCreep([WORK, WORK, CARRY, MOVE, MOVE], newName, {memory: {role: 'builder'}});
+            if(!spawn.spawnCreep([WORK, WORK, WORK, CARRY, MOVE, MOVE], newName, {memory: {role: 'builder'}})) {
+                console.log('Unit too large to produce');
+                spawn.spawnCreep([WORK, WORK, CARRY, MOVE, MOVE], newName, {memory: {role: 'builder'}})
+            }
         }
         //console.log('Harvesters:' + harvesters.length.toString() + ' / Upgraders: ' + upgraders.length.toString() + ' / Builders: ' + builders.length.toString())
     }
