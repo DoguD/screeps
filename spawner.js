@@ -1,5 +1,5 @@
 let population = {
-        harvester: 1,
+        harvester: 2,
         upgrader: 1,
         builder: 0
 };
