@@ -19,7 +19,7 @@ var spawner = {
         let upgraders = _.filter(Game.creeps, (creep) => creep.memory.role === 'upgrader');
         if (upgraders.length < population.upgrader) {
             let newName = 'Upgrader' + Game.time;
-            spawn.spawnCreep([WORK, CARRY, MOVE, MOVE], newName, {memory: {role: 'upgrader'}});
+            spawn.spawnCreep([WORK, WORK, CARRY, MOVE], newName, {memory: {role: 'upgrader'}});
         }
 
         // BUILDER
