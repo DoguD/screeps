@@ -17,18 +17,15 @@ var growthManager = {
         // Growth
         if (excessEnergy) {
             // Creep count
-            let harvesters = _.filter(Game.creeps, (creep) => creep.memory.role === 'harvester');
-            let upgraders = _.filter(Game.creeps, (creep) => creep.memory.role === 'upgrader');
-            let builders = _.filter(Game.creeps, (creep) => creep.memory.role === 'builder');
-            if (upgraders < builders - 1) {
+            if (spawn.memory.pUpgrader < (spawn.memory.pBuilders - 1)) {
                 spawn.memory.pUpgrader = spawn.memory.pUpgrader + 1;
-                console.log ('Upgrader population increased.');
-            } else if (builders < harvesters - 1) {
+                console.log('Upgrader population increased.');
+            } else if (spawn.memory.pBuilders < spawn.memory.pHarvester - 1) {
                 spawn.memory.pBuilders = spawn.memory.pBuilders + 1;
-                console.log ('Builder population increased.');
+                console.log('Builder population increased.');
             } else {
                 spawn.memory.pHarvester = spawn.memory.pHarvester + 1;
-                console.log ('Harvester population increased.');
+                console.log('Harvester population increased.');
             }
         }
     }
