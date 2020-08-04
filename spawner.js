@@ -7,16 +7,11 @@ var spawner = {
             builder: spawn.memory.pBuilder,
             upgrader: spawn.memory.pUpgrader,
         };
-        console.log(population.harvester);
-        console.log(population.builder);
-        console.log(population.upgrader);
 
         // HARVESTERS
         let harvesters = _.filter(Game.creeps, (creep) => creep.memory.role === 'harvester');
-        console.log(harvesters.length);
-        console.log(harvesters.length < population.harvester);
         if (harvesters.length < population.harvester) {
-            console.log('hey');
+            console.log('Trying to generate harvester');
             let newName = 'Harvester' + Game.time;
             spawn.spawnCreep([WORK, WORK, CARRY, MOVE], newName,
                 {memory: {role: 'harvester'}});
@@ -32,6 +27,7 @@ var spawner = {
         // BUILDER
         let builders = _.filter(Game.creeps, (creep) => creep.memory.role === 'builder');
         if (builders.length < population.builder) {
+            console.log('Trying to generate builder');
             let newName = 'Builder' + Game.time;
             spawn.spawnCreep([WORK, WORK, CARRY, MOVE], newName, {memory: {role: 'builder'}});
         }
