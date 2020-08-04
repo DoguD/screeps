@@ -35,9 +35,6 @@ var roleBuilder = {
             if (creep.harvest(sources[1]) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(sources[1], {visualizePathStyle: {stroke: '#0000ff'}});
             }
-        } else {
-            console.log('Builder turned to harvester.')
-            creep.memory.role = 'harvester'
         }
     }
 };
