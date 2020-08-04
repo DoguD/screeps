@@ -15,18 +15,18 @@ var growthManager = {
 
         // Growth
         if (excessEnergy) {
-            console.log(spawn.memory.pUpgrader);
-            console.log(spawn.memory.pBuilder);
-            console.log(spawn.memory.pHarvester);
+            let pUpgrader = spawn.memory.pUpgrader;
+            let pBuilder = spawn.memory.pBuilder;
+            let pHarvester = spawn.memory.pHarvester;
             // Creep count
-            if (spawn.memory.pUpgrader < (spawn.memory.pBuilders - 1)) {
-                spawn.memory.pUpgrader = spawn.memory.pUpgrader + 1;
+            if (pUpgrader < (pBuilder - 1)) {
+                spawn.memory.pUpgrader = pUpgrader + 1;
                 console.log('Upgrader population increased.');
-            } else if (spawn.memory.pBuilders < spawn.memory.pHarvester - 1) {
-                spawn.memory.pBuilders = spawn.memory.pBuilders + 1;
+            } else if (pBuilder < pHarvester - 1) {
+                spawn.memory.pBuilder = pBuilder + 1;
                 console.log('Builder population increased.');
             } else {
-                spawn.memory.pHarvester = spawn.memory.pHarvester + 1;
+                spawn.memory.pHarvester = pHarvester + 1;
                 console.log('Harvester population increased.');
             }
         }
