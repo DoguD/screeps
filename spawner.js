@@ -1,15 +1,13 @@
 let spawn = Game.spawns['Spawn1'];
-let population = {
-    harvester: spawn.memory.pHarvester,
-    builder: spawn.memory.pBuilder,
-    upgrader: spawn.memory.pUpgrader,
-};
-console.log(population.harvester);
-console.log(population.builder);
-console.log(population.upgrader);
 
 var spawner = {
     checkSpawn: function () {
+        let population = {
+            harvester: spawn.memory.pHarvester,
+            builder: spawn.memory.pBuilder,
+            upgrader: spawn.memory.pUpgrader,
+        };
+
         // HARVESTERS
         let harvesters = _.filter(Game.creeps, (creep) => creep.memory.role === 'harvester');
         if (harvesters.length < population.harvester) {
