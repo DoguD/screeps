@@ -9,6 +9,7 @@ let growthManager = require('growth');
 let clearer = require('clear');
 
 module.exports.loop = () => {
+    Game.cpu.generatePixel();
     clearer.clearMemory();
     spawner.checkSpawn();
 
