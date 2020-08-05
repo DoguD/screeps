@@ -5,7 +5,7 @@ var spawner = {
             harvester: spawn.memory.pHarvester,
             builder: spawn.memory.pBuilder,
             upgrader: spawn.memory.pUpgrader,
-            carrier: spawn.memory.carrier
+            carrier: spawn.memory.pCarrier
         };
 
         // BUILDER
@@ -24,8 +24,6 @@ var spawner = {
 
         // Carrier
         let carriers = _.filter(Game.creeps, (creep) => creep.memory.role === 'carrier');
-        console.log(carriers);
-        console.log(population.carrier);
         if (carriers.length < population.carrier) {
             let newName = 'Carrier' + Game.time;
             if (spawn.spawnCreep([WORK, CARRY, MOVE, MOVE, MOVE], newName, {memory: {role: 'carrier'}}) === -6) {
