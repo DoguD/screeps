@@ -4,7 +4,7 @@ let sourceFinder = {
         let availableSources = [];
         activeSources.forEach((item, index) => {
             let sourceLocation = item.pos;
-            console.log(creep.room.Terrain.get(item.pos.x, item.pos.y))
+            console.log(creep.room.get(item.pos.x, item.pos.y))
         })
     }
 };
