@@ -8,7 +8,7 @@ let spawner = require('spawner');
 let growthManager = require('growth');
 let clearer = require('clear');
 
-module.exports.loop = () => {\
+module.exports.loop = () => {
     clearer.clearMemory();
     spawner.checkSpawn();
 
