@@ -7,6 +7,17 @@ var spawner = {
             upgrader: spawn.memory.pUpgrader,
         };
 
+        // BUILDER
+        let builders = _.filter(Game.creeps, (creep) => creep.memory.role === 'builder');
+        if (builders.length < population.builder) {
+            let newName = 'Builder' + Game.time;
+            if (spawn.spawnCreep([WORK, WORK, WORK, CARRY, MOVE, MOVE], newName, {memory: {role: 'builder'}}) === -6) {
+                if(spawn.spawnCreep([WORK, WORK, CARRY, MOVE, MOVE], newName, {memory: {role: 'builder'}}) === -6) {
+                    spawn.spawnCreep([WORK, WORK, CARRY, MOVE], newName, {memory: {role: 'builder'}})
+                }
+            }
+        }
+
         // HARVESTERS
         let harvesters = _.filter(Game.creeps, (creep) => creep.memory.role === 'harvester');
         if (harvesters.length < population.harvester) {
@@ -25,17 +36,6 @@ var spawner = {
             if (spawn.spawnCreep([WORK, WORK, WORK, CARRY, MOVE, MOVE], newName, {memory: {role: 'upgrader'}}) === -6) {
                 if (spawn.spawnCreep([WORK, WORK, CARRY, MOVE, MOVE], newName, {memory: {role: 'upgrader'}}) === -6) {
                     spawn.spawnCreep([WORK, WORK, CARRY, MOVE], newName, {memory: {role: 'upgrader'}})
-                }
-            }
-        }
-
-        // BUILDER
-        let builders = _.filter(Game.creeps, (creep) => creep.memory.role === 'builder');
-        if (builders.length < population.builder) {
-            let newName = 'Builder' + Game.time;
-            if (spawn.spawnCreep([WORK, WORK, WORK, CARRY, MOVE, MOVE], newName, {memory: {role: 'builder'}}) === -6) {
-                if(spawn.spawnCreep([WORK, WORK, CARRY, MOVE, MOVE], newName, {memory: {role: 'builder'}}) === -6) {
-                    spawn.spawnCreep([WORK, WORK, CARRY, MOVE], newName, {memory: {role: 'builder'}})
                 }
             }
         }
