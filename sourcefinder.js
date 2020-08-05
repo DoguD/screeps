@@ -1,10 +1,14 @@
 let sourceFinder = {
     findAvailableSource: (creep) => {
-        let activeSources = creep.room.find(FIND_SOURCES_ACTIVE);
+        let room = creep.room;
+        let activeSources = room.find(FIND_SOURCES_ACTIVE);
         let availableSources = [];
         activeSources.forEach((item, index) => {
             let sourceLocation = item.pos;
-            console.log(creep.room.lookAt(item.pos.x, item.pos.y))
+            let topLeft = room.lookAt(sourceLocation.x-1, sourceLocation.y-1);
+            topLeft.forEach((item,index) => {
+                console.log(item);
+            })
         })
     }
 };
