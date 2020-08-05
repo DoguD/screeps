@@ -6,13 +6,26 @@ let sourceFinder = {
         activeSources.forEach((item, index) => {
             let available = false;
             let sourceLocation = item.pos;
-            let topLeft = room.lookAt(sourceLocation.x+1, sourceLocation.y+1);
-            topLeft.forEach((item, index) => {
-                if (item.type === 'terrain') {
-                    console.log(item.terrain);
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    let location = room.lookAt(sourceLocation.x - 1 + i, sourceLocation.y - 1 + j);
+                    let microAvailable = true;
+                    location.forEach((item, index) => {
+                        if ((item.type === 'terrain' && item.terrain !== 'plain') || item.type === 'creep') {
+                            microAvailable = false;
+                        }
+                    });
+                    if (microAvailable) {
+                        available = true;
+                        break;
+                    }
                 }
-            })
-        })
+            }
+            if (available) {
+                availableSources.push(item)
+            }
+        });
+        return availableSources;
     }
 };
 
