@@ -1,7 +1,8 @@
 let roles = {
     harvester: require('role.harvester'),
     upgrader: require('role.upgrader'),
-    builder: require('role.builder')
+    builder: require('role.builder'),
+    carrier: require('role.carrier')
 };
 
 let spawner = require('spawner');
@@ -20,6 +21,8 @@ module.exports.loop = () => {
             roles.upgrader.run(creep)
         } else if (creep.memory.role === 'builder') {
             roles.builder.run(creep)
+        } else if (creep.memory.role === 'carrier') {
+            roles.carrier.run(creep)
         }
     }
 

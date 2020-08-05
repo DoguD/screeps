@@ -5,6 +5,7 @@ var spawner = {
             harvester: spawn.memory.pHarvester,
             builder: spawn.memory.pBuilder,
             upgrader: spawn.memory.pUpgrader,
+            carrier: spawn.memory.carrier
         };
 
         // BUILDER
@@ -17,6 +18,17 @@ var spawner = {
                     if (spawn.spawnCreep([WORK, WORK, CARRY, MOVE, MOVE], newName, {memory: {role: 'builder'}}) === -6) {
                         spawn.spawnCreep([WORK, WORK, CARRY, MOVE], newName, {memory: {role: 'builder'}})
                     }
+                }
+            }
+        }
+
+        // BUILDER
+        let carriers = _.filter(Game.creeps, (creep) => creep.memory.role === 'carrier');
+        if (carriers.length < population.carrier) {
+            let newName = 'Carrier' + Game.time;
+            if (spawn.spawnCreep([WORK, CARRY, MOVE, MOVE, MOVE], newName, {memory: {role: 'carrier'}}) === -6) {
+                if (spawn.spawnCreep([WORK, CARRY, MOVE, MOVE], newName, {memory: {role: 'carrier'}}) === -6) {
+                    spawn.spawnCreep([WORK, CARRY, MOVE], newName, {memory: {role: 'carrier'}})
                 }
             }
         }
