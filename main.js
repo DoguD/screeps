@@ -8,8 +8,7 @@ let spawner = require('spawner');
 let growthManager = require('growth');
 let clearer = require('clear');
 
-module.exports.loop = () => {
-    Game.cpu.generatePixel();
+module.exports.loop = () => {\
     clearer.clearMemory();
     spawner.checkSpawn();
 
