@@ -24,7 +24,7 @@ var growthManager = {
                 spawn.memory.pUpgrader = pUpgrader + 1;
                 spawn.memory.lastPopulationUpdate = Game.time;
                 console.log('Upgrader population increased.');
-            } else if ((pBuilder < pHarvester) && Game.time - lPU > 50) {
+            } else if ((pBuilder < pHarvester - 1) && Game.time - lPU > 50) {
                 spawn.memory.pBuilder = pBuilder + 1;
                 spawn.memory.lastPopulationUpdate = Game.time;
                 console.log('Builder population increased.');
