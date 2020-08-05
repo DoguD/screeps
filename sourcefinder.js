@@ -7,7 +7,7 @@ let sourceFinder = {
             let sourceLocation = item.pos;
             let topLeft = room.lookAt(sourceLocation.x-1, sourceLocation.y-1);
             topLeft.forEach((item,index) => {
-                console.log(item);
+                console.log(item.type);
             })
         })
     }
