@@ -3,7 +3,7 @@ let sourceFinder = {
         let activeSources = creep.room.find(FIND_SOURCES_ACTIVE);
         let availableSources = [];
         activeSources.forEach((item, index) => {
-            let sourceLocation = item.pos;
+            let sourceLocation = item.pos[0];
             console.log(sourceLocation);
         })
     }
