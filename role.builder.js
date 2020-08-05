@@ -25,10 +25,23 @@ var roleBuilder = {
                     creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#0000ff'}});
                 }
             }
-            // If no build targets then ugrade
+            // If no build target than repair
             else {
-                //console.log(creep.name + ' doing upgrade');
-                roles.upgrader.run(creep);
+                let repairTargets = creep.room.find(FIND_STRUCTURES, {
+                    filter: (structure) => {
+                        return structure.hits < 1000 && structure.hitsMax > 1000;
+                    }
+                });
+                if (repairTargets.length > 0) {
+                    if (creep.repair(repairTargets[0]) === ERR_NOT_IN_RANGE) {
+                        creep.moveTo(repairTargets[0], {visualizePathStyle: {stroke: '#00ffff'}});
+                    }
+                }
+                // If no build targets and repairs then ugrade
+                else {
+                    //console.log(creep.name + ' doing upgrade');
+                    roles.upgrader.run(creep);
+                }
             }
         } else if (creep.store.getFreeCapacity() > 0) {
             let sources = creep.room.find(FIND_SOURCES_ACTIVE);
