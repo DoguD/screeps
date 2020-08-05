@@ -22,7 +22,7 @@ var spawner = {
             }
         }
 
-        // BUILDER
+        // Carrier
         let carriers = _.filter(Game.creeps, (creep) => creep.memory.role === 'carrier');
         if (carriers.length < population.carrier) {
             let newName = 'Carrier' + Game.time;
