@@ -13,7 +13,7 @@ var spawner = {
             console.log('should producet harvester');
             let newName = 'Harvester' + Game.time;
             if (spawn.spawnCreep([WORK, WORK, WORK, CARRY, MOVE, MOVE], newName,
-                {memory: {role: 'harvester'}}) === ERR_NOT_ENOUGH_ENERGY) {
+                {memory: {role: 'harvester'}}) === -6) {
                 spawn.spawnCreep([WORK, WORK, CARRY, MOVE, MOVE], newName,
                     {memory: {role: 'harvester'}})
             }
