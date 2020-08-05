@@ -1,5 +1,5 @@
 let sourceFinder = {
-    findAvailableSource: () => {
+    findAvailableSource: (creep) => {
         let activeSources = creep.room.find(FIND_SOURCES_ACTIVE);
         let availableSources = [];
         activeSources.forEach((item, index) => {
