@@ -14,8 +14,11 @@ var spawner = {
             let newName = 'Harvester' + Game.time;
             if (spawn.spawnCreep([WORK, WORK, WORK, CARRY, MOVE, MOVE], newName,
                 {memory: {role: 'harvester'}}) === -6) {
-                spawn.spawnCreep([WORK, WORK, CARRY, MOVE, MOVE], newName,
-                    {memory: {role: 'harvester'}})
+                if (spawn.spawnCreep([WORK, WORK, CARRY, MOVE, MOVE], newName,
+                    {memory: {role: 'harvester'}}) === -6) {
+                    spawn.spawnCreep([WORK, WORK, CARRY, MOVE], newName,
+                        {memory: {role: 'harvester'}})
+                }
             }
             ;
         }
