@@ -7,6 +7,6 @@ let clear = {
             }
         }
     }
-}
+};
 
 module.exports = clear;
