@@ -15,11 +15,11 @@ module.exports.loop = () => {
 
     for (let name in Game.creeps) {
         let creep = Game.creeps[name];
-        if (creep.memory.role == 'harvester') {
+        if (creep.memory.role === 'harvester') {
             roles.harvester.run(creep)
-        } else if (creep.memory.role == 'upgrader') {
+        } else if (creep.memory.role === 'upgrader') {
             roles.upgrader.run(creep)
-        } else if (creep.memory.role == 'builder') {
+        } else if (creep.memory.role === 'builder') {
             roles.builder.run(creep)
         }
     }
