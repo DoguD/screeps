@@ -23,5 +23,5 @@ module.exports.loop = () => {
         }
     }
 
-    growthManager.checkGrowth();
+    //growthManager.checkGrowth();
 };
