@@ -1,9 +1,11 @@
 let roles = {
     builder: require('role.builder'),
 };
+let sourceFinder = require('sourcefinder');
 
 var roleHarvester = {
     run: function (creep) {
+        sourceFinder.findAvailableSource();
         // Check if there is free capacity
         if (creep.store.getFreeCapacity() > 0) {
             // Get closest source with energy
