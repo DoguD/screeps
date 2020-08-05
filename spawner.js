@@ -10,7 +10,6 @@ var spawner = {
         // HARVESTERS
         let harvesters = _.filter(Game.creeps, (creep) => creep.memory.role === 'harvester');
         if (harvesters.length < population.harvester) {
-            console.log('should producet harvester');
             let newName = 'Harvester' + Game.time;
             if (spawn.spawnCreep([WORK, WORK, WORK, CARRY, MOVE, MOVE], newName,
                 {memory: {role: 'harvester'}}) === -6) {
@@ -20,7 +19,17 @@ var spawner = {
                         {memory: {role: 'harvester'}})
                 }
             }
-            ;
+        }
+
+        // UPGRADERS
+        let upgraders = _.filter(Game.creeps, (creep) => creep.memory.role === 'upgrader');
+        if (upgraders.length < population.upgrader) {
+            let newName = 'Upgrader' + Game.time;
+            if (spawn.spawnCreep([WORK, WORK, WORK, CARRY, MOVE, MOVE], newName, {memory: {role: 'upgrader'}}) === -6) {
+                if (spawn.spawnCreep([WORK, WORK, CARRY, MOVE, MOVE], newName, {memory: {role: 'upgrader'}}) === -6) {
+                    spawn.spawnCreep([WORK, WORK, CARRY, MOVE], newName, {memory: {role: 'upgrader'}})
+                }
+            }
         }
 
         // BUILDER
@@ -28,20 +37,10 @@ var spawner = {
         if (builders.length < population.builder) {
             let newName = 'Builder' + Game.time;
             if (spawn.spawnCreep([WORK, WORK, WORK, CARRY, MOVE, MOVE], newName,
-                {memory: {role: 'builder'}}) === ERR_NOT_ENOUGH_ENERGY) {
-                spawn.spawnCreep([WORK, WORK, CARRY, MOVE, MOVE], newName, {memory: {role: 'builder'}})
-            }
-        }
-
-        // UPGRADERS
-        let upgraders = _.filter(Game.creeps, (creep) => creep.memory.role === 'upgrader');
-        if (upgraders.length < population.upgrader) {
-            let newName = 'Upgrader' + Game.time;
-            if (spawn.spawnCreep([WORK, WORK, WORK, CARRY, MOVE, MOVE], newName, {memory: {role: 'upgrader'}})
-                ===
-                ERR_NOT_ENOUGH_ENERGY
-            ) {
-                spawn.spawnCreep([WORK, WORK, CARRY, MOVE, MOVE], newName, {memory: {role: 'upgrader'}});
+                {memory: {role: 'builder'}}) === -6) {
+                if(spawn.spawnCreep([WORK, WORK, CARRY, MOVE, MOVE], newName, {memory: {role: 'builder'}}) === -6) {
+                    spawn.spawnCreep([WORK, WORK, CARRY, MOVE], newName, {memory: {role: 'builder'}})
+                }
             }
         }
 
